@@ -28,10 +28,11 @@ def load_model():
     return _tokenizer, _model
 
 def generate(prompt: str, max_new_tokens: int = 500) -> str:
-    tokenizer, model = load_model()
-    if model is None:
-        return "ERROR: Model not loaded. Check HF_TOKEN."
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    with torch.no_grad():
-        output = model.generate(**inputs, max_new_tokens=max_new_tokens, temperature=0.1)
-    return tokenizer.decode(output[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
+        tokenizer, model = load_model()
+            if model is None:
+                    return "ERROR: Model not loaded. Check HF_TOKEN."
+                        inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+                            with torch.no_grad():
+                                    output = model.generate(**inputs, max_new_tokens=max_new_tokens, temperature=0.1)
+                                        return tokenizer.decode(output[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
+                                        

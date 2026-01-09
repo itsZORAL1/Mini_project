@@ -55,7 +55,7 @@ def run_integrity_pipeline(data):
     return isinstance(data, dict) and len(data)>0, "Valid JSON" if isinstance(data, dict) else "Invalid JSON"
 
 with content_col:
-    # --- MATCHER 🎯 ---
+    # --- MATCHER  ---
     if st.session_state.view_mode == "🎯":
         target_job = st.text_input("", placeholder="Position Title (e.g. Python Developer)")
         criteria = st.text_area("", placeholder="Hiring Criteria...", height=120)
@@ -78,7 +78,7 @@ CONTEXT: {db_context}<|eot_id|><|start_header_id|>user<|end_header_id|>
         if "last_res" in st.session_state:
             st.markdown(f'<div class="response-box">{st.session_state.last_res}</div>', unsafe_allow_html=True)
 
-    # --- EXTRACTOR 🧩 ---
+    # --- EXTRACTOR  ---
     elif st.session_state.view_mode == "🧩":
         raw_text = st.text_area("", placeholder="Paste Resume/CV text here...", height=300)
         cols = st.columns([0.93, 0.07])
